@@ -46,3 +46,4 @@ confirma. O movimento usa predição + reconciliação sobre o mesmo `shared/sim
 
 Primeira versão jogável em construção. O design completo está em
 [`docs/GDD.md`](docs/GDD.md).
+
