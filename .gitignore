@@ -1,0 +1,9 @@
+# dependências
+node_modules/
+
+# saves gerados em tempo de execução
+saves/
+
+# logs e temporários
+*.log
+.DS_Store

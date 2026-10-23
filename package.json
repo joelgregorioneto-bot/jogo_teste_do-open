@@ -1,0 +1,15 @@
+{
+  "name": "aventura-2d",
+  "version": "0.1.0",
+  "description": "Aventura 2D cooperativa online para 2 jogadores — 4 biomas, inventários individuais e servidor autoritativo.",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node test/smoke.js",
+    "test:net": "node test/net.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

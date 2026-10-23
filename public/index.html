@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aventura 2D — Co-op Online</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="320" height="180"></canvas>
+
+    <div id="lobby" class="panel">
+      <h1>AVENTURA 2D</h1>
+      <p class="sub">Dois heróis · quatro biomas · um coração no pântano</p>
+
+      <div class="row">
+        <label>Seu nome</label>
+        <input id="nameInput" maxlength="14" placeholder="Jogador" />
+      </div>
+
+      <div class="row">
+        <label>Seu kit</label>
+        <div id="kitPick" class="kits">
+          <button class="kit" data-kit="vanguard">
+            <b>Vanguarda</b>
+            <span>Melee · escudo · 5 corações</span>
+          </button>
+          <button class="kit" data-kit="scout">
+            <b>Batedora</b>
+            <span>Distância · mobilidade · 3 corações</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label>Código da sala</label>
+        <input id="codeInput" maxlength="10" value="AMIGOS" />
+      </div>
+
+      <button id="playBtn" class="primary">Entrar na aventura</button>
+      <p id="lobbyMsg" class="msg"></p>
+
+      <details class="controls">
+        <summary>Controles</summary>
+        <div class="keys">
+          <span><kbd>WASD</kbd> mover</span>
+          <span><kbd>J</kbd> atacar</span>
+          <span><kbd>Espaço</kbd> dash</span>
+          <span><kbd>K</kbd> escudo (Vanguarda)</span>
+          <span><kbd>E</kbd> interagir / reanimar / ferramenta</span>
+          <span><kbd>1</kbd> <kbd>2</kbd> poções</span>
+          <span><kbd>I</kbd> inventário</span>
+          <span><kbd>Q</kbd> ping</span>
+          <span><kbd>H</kbd> ajuda</span>
+        </div>
+        <p class="hint">Abra o jogo em duas abas/dispositivos com o mesmo código para jogar online.</p>
+      </details>
+    </div>
+
+    <div id="inventory" class="panel hidden">
+      <div class="inv-head">
+        <h2>Inventários</h2>
+        <button id="closeInv" class="ghost">Fechar (I)</button>
+      </div>
+      <div class="inv-grid">
+        <section id="invYou" class="inv-col"></section>
+        <section id="invPartner" class="inv-col"></section>
+      </div>
+      <p class="hint">O jogo <b>não pausa</b> com o inventário aberto. Moedas são pessoais; chaves grandes são compartilhadas.</p>
+    </div>
+
+    <div id="help" class="panel hidden">
+      <h2>Como jogar</h2>
+      <ul class="help-list">
+        <li><b>Objetivo:</b> atravessar os 4 biomas e derrotar o Coração do Pântano.</li>
+        <li><b>Ferramentas:</b> Bomba (quebra paredes rachadas), Gancho (avanço longo), Lanterna (revela a névoa).</li>
+        <li><b>Cooperação:</b> a Sentinela abre as costas ao atacar; o Olho só leva dano por trás; o Escaravelho atordoa na parede; o Sapo agarra com a língua — corte a língua.</li>
+        <li><b>Caído:</b> segure <kbd>E</kbd> perto do parceiro por 3s para reanimar.</li>
+        <li><b>Checkpoint:</b> <kbd>E</kbd> perto da estátua cura e salva.</li>
+        <li><b>Trocas:</b> abra <kbd>I</kbd> e use <b>Dar</b>; o parceiro aceita. Não funciona em combate.</li>
+      </ul>
+      <button id="closeHelp" class="primary">Voltar</button>
+    </div>
+
+    <div id="tradeOffers"></div>
+    <div id="toasts"></div>
+    <div id="disconnected" class="panel hidden">
+      <h2>Conexão perdida</h2>
+      <p>Reconectando… seu personagem espera por 120 segundos.</p>
+    </div>
+  </div>
+
+  <script type="module" src="/client/main.js"></script>
+</body>
+</html>
